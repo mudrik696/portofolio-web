@@ -1,0 +1,38 @@
+---
+// components
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import ResumeDropdown from "../../elements/ResumeDropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+// content
+const education = [
+    { 
+        title: "Applied Data Science",
+        place: "Politeknik Elektronika Negeri Surabaya ",
+        period: "2024 - Present",
+        text: "Focused on Mathematics and Science, developing strong analytical, logical, and problemsolving skills. Studied core subjects including mathematics, physics, chemistry, and biology while strengthening quantitative reasoning and scientific thinking."
+    },
+    { 
+        title: "Mathematics & Science",
+        place: "MAS Husnul Khotimah ",
+        period: "2021 - 2024",
+        text: "Focused on Mathematics and Science, developing strong analytical, logical, and problemsolving skills. Studied core subjects including mathematics, physics, chemistry, and biology while strengthening quantitative reasoning and scientific thinking."
+    }
+]
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">Education</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {
+                education.map((i) => (
+                    <ResumeDropdown title={i.title} place={i.place} period={i.period} text={i.text} />
+                ))
+            }
+        </Container>
+        <ContainerBottom /> 
+    </div>
+    
+</Container>

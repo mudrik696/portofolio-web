@@ -1,0 +1,43 @@
+---
+// components
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Dropdown from "../../elements/Dropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+// content
+const services = [
+{
+title: "Machine Learning",
+text: "I build machine learning solutions for classification, clustering, prediction, and recommendation, transforming data into models that can uncover patterns and support intelligent decisions."
+},
+{
+title: "Data Analytics",
+text: "I analyze data to uncover trends, relationships, and meaningful insights using statistical analysis, forecasting, and techniques such as Multidimensional Scaling."
+},
+{
+title: "Data Visualization",
+text: "I transform complex datasets into clear and interactive dashboards using Power BI and Tableau, helping communicate key metrics, trends, and insights effectively."
+},
+{
+title: "Data Engineering",
+text: "I build data pipelines and warehouse solutions using ETL processes, Pentaho, PostgreSQL, and MySQL to transform raw data into structured and analytics-ready datasets."
+},
+]
+
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">Services</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {
+                services.map((service, index) => (
+                    <Dropdown title=`${index + 1}. ${service.title}` text={service.text} />  
+                ))
+            }       
+        </Container>
+        <ContainerBottom />    
+    </div>
+
+</Container>

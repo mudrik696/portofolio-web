@@ -1,0 +1,26 @@
+---
+// components
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import Container from "../../elements/Container.astro";
+import Link from "../../elements/Link.astro";
+import ImageContainer from "../../elements/ImageContainer.astro";
+
+// assets
+import peter2 from "../../../assets/images/mudrik3.jpeg";
+---
+
+<Container variant={'xl'}> <Heading tagName="h2" tagSize="h2" class="text-center">About</Heading> <div class="flex lg:flex-row lg:gap-16 gap-10 flex-col"> <div class="flex flex-col items-start gap-6 lg:pt-6 text-base-900 lg:flex-1">
+<Text variant={'xl'}>I'm a Data Science student passionate about turning data into meaningful insights and practical solutions.</Text>
+        <Text variant={'sm'}>I work across data analytics, machine learning, and data visualization, exploring how data can be transformed into predictions, patterns, and insights that support better decision-making.</Text>
+
+        <Text variant={'sm'}>From building machine learning models and forecasting time series to creating interactive dashboards and developing data pipelines, I enjoy solving problems through a combination of analytical thinking and technology.</Text>
+
+        <Link variant={'button'} href="/about">More about me</Link>
+    </div>
+
+    <div class="w-full lg:h-[500px] h-auto lg:flex-1">
+        <ImageContainer src={peter2} alt="Mudrik Jundullah" />
+    </div>
+</div>
+</Container>

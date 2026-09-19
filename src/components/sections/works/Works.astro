@@ -1,0 +1,26 @@
+---
+// components
+import Container from "../../elements/Container.astro";
+import Work from "../../elements/Work.astro";
+
+// content collections
+import { getCollection } from "astro:content";
+const works = await getCollection("works");
+const workOrder = ["machine-learning", "data-analytics", "data-warehouse", "data-visualization"];
+const orderedWorks = works.sort((firstWork, secondWork) => workOrder.indexOf(firstWork.data.slug) - workOrder.indexOf(secondWork.data.slug));
+---
+
+<Container variant={'lg'}>
+    <Container class="grid lg:grid-cols-2 grid-cols-1 gap-24">
+        {orderedWorks.map((work) => (
+            <Work 
+                slug={work.data.slug}
+                featuredImage={work.data.featuredImage}
+                title={work.data.title}
+                client={work.data.client}
+                category={work.data.category}>
+            </Work>
+        ))
+        }
+    </Container>
+</Container>
