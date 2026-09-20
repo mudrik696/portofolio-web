@@ -26,5 +26,5 @@ export default defineConfig({
   },
 
   integrations: [sitemap()],
-  site: "https://portofolio-web-ehq.pages.dev/"
+  site: "https://portofolio-web-ehq.pages.dev"
 });

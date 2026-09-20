@@ -1,14 +1,11 @@
 ---
-// stylesheet
 import "../styles/global.css";
 
-// components
 import BaseHead from "../components/global/BaseHead.astro";
 import Wrapper from "../components/global/Wrapper.astro";
 import NavBar from "../components/global/Navigation.astro";
 import Footer from "../components/global/Footer.astro";
 
-// assets
 import bg from "../assets/images/bg.jpg";
 import { getImage } from "astro:assets";
 
@@ -17,26 +14,17 @@ const backgroundImage = await getImage({
 	format: "jpg"
 });
 
-// props
 const {
-	title = "Mudrik Jundullah | Data Science Portfolio",
-	description = "Data Science portfolio featuring Machine Learning, Data Analytics, Data Visualization, and Data Engineering projects.",
-	titleTemplate = "%s | Mudrik Jundullah",
-	siteName = "Mudrik Jundullah",
+	title,
+	description,
+	titleTemplate,
+	siteName,
 	ogImage,
 	twitterSite,
 	themeColor,
-	locale = "en_US",
+	locale,
 	...seoProps
 } = Astro.props;
-
-// Open Graph image
-const defaultOgImage = new URL(
-	"/og-image.png",
-	Astro.site
-).toString();
-
-const finalOgImage = ogImage || defaultOgImage;
 ---
 
 <!doctype html>
@@ -47,7 +35,7 @@ const finalOgImage = ogImage || defaultOgImage;
 		description={description}
 		titleTemplate={titleTemplate}
 		siteName={siteName}
-		ogImage={finalOgImage}
+		ogImage={ogImage}
 		twitterSite={twitterSite}
 		themeColor={themeColor}
 		locale={locale}
@@ -58,10 +46,8 @@ const finalOgImage = ogImage || defaultOgImage;
 		style={`background-image: url(${backgroundImage.src})`}
 		class="bg-cover bg-center bg-no-repeat bg-fixed box-border"
 	>
-		<!-- Background noise effect -->
 		<div class="noise-[67,22,25] fixed inset-0 pointer-events-none"></div>
 
-		<!-- Wrapper component to make sure all content on the website is above the noise filter background -->
 		<Wrapper>
 			<NavBar />
 
